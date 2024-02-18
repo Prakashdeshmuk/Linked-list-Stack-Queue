@@ -39,26 +39,49 @@ class Queue
 
     void deque()
     {
-        if(front==-1 || front>rear)
+        if(front==-1 && rear==-1)
         {
             cout << "Underflow" << endl;
             return;
         }
+        else if(front==rear)
+        {
+            cout << arr[front] << " ";
+            front = -1;
+            rear = -1;
 
-        int temp = arr[front];
+        }
+        else
+        {
+            int temp = arr[front];
 
-        front++;
-        cout << "Deque Element" << temp << endl;
+            front++;
+            cout << "Deque Element" << temp << endl;
+        }
+
+        
     }
 
     void frontEle()
     {
-       if(front==-1 || front>rear)
+       if(front==-1 && rear==-1)
        {
-            cout << "No Elements In the Queue" << endl;
-            return;
+        cout << "Queue is Empty" << endl;
+        return;
        }
        cout << arr[front] << " ";
+       return;
+    }
+
+
+    void backEle()
+    {
+        if(front==-1 && rear==-1)
+        {
+            cout << "Queue is Empty" << endl;
+            return;
+        }
+        cout << arr[rear] << " ";
     }
 
 
@@ -73,5 +96,6 @@ int main()
     qu.deque();
     qu.deque();
     qu.frontEle();
+    
 
 }
